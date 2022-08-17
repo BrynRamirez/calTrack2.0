@@ -54,6 +54,10 @@ public class calendar_Data extends AppCompatActivity{
     public void getDocument() {
         // [START get_document]
         auth = FirebaseAuth.getInstance();
+<<<<<<< Updated upstream
+=======
+        //Log.d("EMAIL", email);
+>>>>>>> Stashed changes
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("userID").document("userCal");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -79,6 +83,24 @@ public class calendar_Data extends AppCompatActivity{
 
     public void updateData()
     {
+<<<<<<< Updated upstream
         
+=======
+        auth = FirebaseAuth.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference docRef = db.collection("calendar").document("cal");  // gets db from calendar and the document is called cal
+        // where we store into our data... ex 2022 August 12 data ="..."
+        docRef.update("year."+year+".month."+month+".day."+day+".data", data).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d("Data_Update_Test", "Successfully updated month, day, year, and data");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("Data_Update_Test", "Error updating document");
+            }
+        });
+>>>>>>> Stashed changes
     }
 }
